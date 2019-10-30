@@ -1,7 +1,7 @@
 pipeline {
     agent {
         node {
-          label 'maven'
+          label 'dind'
         }
     }
     stages {
@@ -13,6 +13,11 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'mvn test'
+            }
+        }
+        stage('Docker Build') {
+            steps {
+                docker build . -t image-registry.openshift-image-registry.svc:5000/money-tracker:latest
             }
         }
     }
