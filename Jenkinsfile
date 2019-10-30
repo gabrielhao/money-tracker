@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-                docker build . -t image-registry.openshift-image-registry.svc:5000/money-tracker:latest
+                docker build -t image-registry.openshift-image-registry.svc:5000/money-tracker:latest .
             }
         }
     }
