@@ -17,12 +17,12 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-                sh 'docker build -t image-registry.openshift-image-registry.svc:5000/money-tracker:latest .'
+                sh 'docker build -t docker-registry.default.svc:5000/money-tracker:latest .'
             }
         }
         stage('Docker Push') {
             steps {
-                sh 'docker push image-registry.openshift-image-registry.svc:5000/money-tracker:latest'
+                sh 'docker push docker-registry.default.svc:5000/money-tracker:latest'
             }
         }
     }
