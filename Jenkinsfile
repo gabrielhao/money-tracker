@@ -17,12 +17,12 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-                sh 'docker build -t docker-registry.default.svc:5000/jenkins-test/money-tracker:latest .'
+                sh 'docker build -t 172.30.1.1:5000/jenkins-test/money-tracker:latest .'
             }
         }
         stage('Docker Push') {
             steps {
-                sh 'docker push docker-registry.default.svc:5000/jenkins-test/money-tracker:latest'
+                sh 'docker push 172.30.1.1:5000/jenkins-test/money-tracker:latest'
             }
         }
     }
