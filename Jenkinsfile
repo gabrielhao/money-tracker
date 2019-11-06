@@ -28,7 +28,8 @@ pipeline {
         }
         stage('OpenShift Deploy') {
            steps {
-             sh 'oc projects'
+             sh 'oc project money-tracker'
+             sh 'oc rollout latest dc/money-tracker'
            }
         }
     }
