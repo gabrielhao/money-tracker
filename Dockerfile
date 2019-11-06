@@ -4,8 +4,9 @@ MAINTAINER Dennis Stritzke <dennis@stritzke.me>
 
 ADD . /app
 
-RUN mvn clean package -f /app/pom.xml && \
-  chown 1000300:1000300 /app/target/moneytracker-0.1-SNAPSHOT.jar
+# RUN mvn clean package -f /app/pom.xml && \
+COPY target/moneytracker-0.1-SNAPSHOT.jar /app/target/moneytracker-0.1-SNAPSHOT.jar
+RUN chown 1000300:1000300 /app/target/moneytracker-0.1-SNAPSHOT.jar
 
 EXPOSE 8080
 
