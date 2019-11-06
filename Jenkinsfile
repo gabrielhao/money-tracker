@@ -22,8 +22,7 @@ pipeline {
         }
         stage('Docker Push') {
             steps {
-                sh ' cat /run/secrets/kubernetes.io/serviceaccount/token | docker login -u developer --password-stdin docker-registry.default.svc.cluster.local:5000'
-                #sh 'docker login -u developer -p NDWGydCYyjbtyttQ7Mws3_-Yapjsi3o64D55Be81hJc'
+                sh 'cat /run/secrets/kubernetes.io/serviceaccount/token | docker login -u developer --password-stdin docker-registry.default.svc.cluster.local:5000'
                 sh 'docker push 172.30.1.1:5000/jenkins-test/money-tracker:latest'
             }
         }
